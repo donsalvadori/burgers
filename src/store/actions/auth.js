@@ -22,6 +22,8 @@ export const authFail = (error) => {
 	};
 };
 
+const API_KEY = process.env.REACT_APP_AUTH_API_KEY;
+
 export const auth = (email, password) => {
 	return dispatch => {
 		dispatch(authStart());
@@ -30,7 +32,7 @@ export const auth = (email, password) => {
 			password: password,
 			returnSecureToken: true
 		};
-		axios.post('https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyCrYPr7VSX-Qv5Lv8Te1gYMlzpFkSKcGIE', authData)
+		axios.post('https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=' + API_KEY, authData)
 				.then( response => {
 					console.log(response);
 					dispatch(authSuccess(response.data));
