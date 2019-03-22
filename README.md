@@ -6,4 +6,4 @@ featuring:
 * Server requests via axios + firebase
 * Forms with validation 
 * Redux for state management
-* Basic auth
+* Authentication via firebase
